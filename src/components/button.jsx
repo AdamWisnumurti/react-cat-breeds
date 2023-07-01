@@ -44,7 +44,7 @@ const Button = ({
       {...props}
     >
       {isLoading ? (
-        <AiOutlineLoading3Quarters className="animate-spin my-0.5" />
+        <AiOutlineLoading3Quarters className="my-0.5 animate-spin" />
       ) : (
         props.label ?? props.children
       )}

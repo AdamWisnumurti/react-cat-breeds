@@ -5,7 +5,7 @@ import {
   Route,
 } from 'react-router-dom';
 import { Layout, PageNotFound } from './components';
-import MainPage from './containers/Kucheng';
+import MainPage from './containers/MainPage';
 
 function App() {
   return (

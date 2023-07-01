@@ -1,20 +1,19 @@
 import React from 'react';
-import Button from './button';
+import { Link } from 'react-router-dom';
+import { Button } from '.';
 
 const PageNotFound = () => {
-  // const router = useRouter();
   return (
     <div
       id="popup-modal"
-      // tabIndex="-1"
-      className="flex items-center justify-center fixed mx-auto z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 bg-gradient-to-br from-[#787777] to-[#E9E9E9]"
+      className="fixed z-50 mx-auto flex items-center justify-center overflow-y-auto overflow-x-hidden bg-gradient-to-br from-[#787777] to-[#E9E9E9] p-4 md:inset-0"
     >
-      <div className="relative w-full h-full max-w-md md:h-auto">
-        <div className="relative bg-gray-100 rounded-lg shadow-lg dark:bg-gray-100">
+      <div className="relative h-full w-full max-w-md md:h-auto">
+        <div className="relative rounded-lg bg-gray-100 shadow-lg dark:bg-gray-100">
           <div className="p-6 text-center">
             <svg
               aria-hidden="true"
-              className="mx-auto mb-4 text-red-500 w-16 h-16 dark:text-red-500"
+              className="mx-auto mb-4 h-16 w-16 text-red-500 dark:text-red-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -27,18 +26,16 @@ const PageNotFound = () => {
                 d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
               ></path>
             </svg>
-            <h3 className="mb-5 pb-2 text-lg font-normal text-darkgrey dark:text-darkgrey">
+            <h3 className="text-darkgrey dark:text-darkgrey mb-5 pb-2 text-lg font-normal">
               Page Not Found
             </h3>
             <div className="flex justify-center">
-              {/* <Link to="/login" className="w-1/2">
+              <Link to="/">
                 <Button
-                  type={'submit'}
                   variant={'primary'}
-                  label={'Back to home'}
+                  label={'Back to Dashboard'}
                 />
-              </Link> */}
-              <Button>Back To Home</Button>
+              </Link>
             </div>
           </div>
         </div>

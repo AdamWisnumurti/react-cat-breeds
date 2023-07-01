@@ -27,10 +27,10 @@ export function Stars({ num }) {
 export default function CategoryRating({ data }) {
   const painWords = (text) => text.replace(' ', '_').toLowerCase();
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 lg:grid-cols-3">
       {category.map((item, key) => {
         return (
-          <div key={key} className="text-xs">
+          <div key={key} className="text-start text-xs">
             {item}
             <Stars num={data[painWords(item)]} />
           </div>

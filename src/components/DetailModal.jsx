@@ -1,9 +1,8 @@
-import React, { Fragment } from 'react';
-import { Button } from '.';
+import React, { Fragment, useEffect } from 'react';
+import { Button, CategoryRating, ImageCarousel } from '.';
 import { Dialog, Transition } from '@headlessui/react';
 import { RxCross2 } from 'react-icons/rx';
-import ImageCarousel from './ImageCarousel';
-import CategoryRating from './CategoryRating';
+import ReactCountryFlag from 'react-country-flag';
 
 export default function DetailModal({
   modal,
@@ -14,7 +13,10 @@ export default function DetailModal({
   const toggleClose = () => {
     setModal({ ...modal, isOpen: false, data: {}, images: [] });
   };
-  setSelectedOptions();
+  useEffect(() => {
+    setSelectedOptions();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
@@ -48,7 +50,21 @@ export default function DetailModal({
             >
               <Dialog.Panel className="w-full max-w-sm rounded-[12px] bg-white text-center md:max-w-lg">
                 <Dialog.Title className="border-gray-90 flex items-center justify-between border-b px-8 py-6 font-semibold">
-                  <span>{data?.name || ''}</span>
+                  <span>
+                    <span>{data?.name || ''}</span>
+                    <span className="ml-4">
+                      <ReactCountryFlag
+                        countryCode={data?.country_code || ''}
+                        svg
+                        style={{
+                          width: '1.5em',
+                          height: 'auto',
+                        }}
+                        className=" rounded-lg"
+                        title={data?.country_code || ''}
+                      />
+                    </span>
+                  </span>
                   <span
                     className="text-darkgray cursor-pointer"
                     onClick={() =>
@@ -63,9 +79,15 @@ export default function DetailModal({
                     <RxCross2 />
                   </span>
                 </Dialog.Title>
-                <div className="flex flex-col space-y-4 px-8 text-xs">
-                  <ImageCarousel imageList={images} />
+                <div className="flex h-60 flex-col space-y-4 overflow-auto px-8 py-4 text-xs">
+                  <div className="h-full">
+                    <ImageCarousel imageList={images} />
+                  </div>
                   <span>{data?.description || ''}</span>
+                  <span className="font-semibold">
+                    {data?.temperament || ''}
+                  </span>
+                  <CategoryRating data={data} />
                 </div>
                 <div className="border-gray-90 flex justify-end space-x-5 border-t px-8 pb-5 pt-4">
                   <Button

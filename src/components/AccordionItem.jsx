@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
-import ImageCarousel from './ImageCarousel';
-import CategoryRating from './CategoryRating';
+import { ImageCarousel, CategoryRating } from '.';
 
 export default function AccordionItem({
   item,
@@ -17,12 +16,12 @@ export default function AccordionItem({
       key={item?.id || idx}
     >
       <div
-        className="flex px-8 py-2"
+        className="flex cursor-pointer px-8 py-2"
         onClick={() => toggleAccordion(idx, item?.id)}
       >
         <div className="flex w-4/5 items-center space-x-8 py-4">
           <div className="flex items-center">
-            <div className="text-neutral-20 text-xl">
+            <div className="text-neutral-20 text-lg">
               {item?.name || ''}
             </div>
           </div>

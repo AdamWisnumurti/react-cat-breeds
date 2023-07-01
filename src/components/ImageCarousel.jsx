@@ -3,16 +3,14 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 export const ImageCarousel = ({ imageList }) => {
-  const MyView = imageList.map((item, key) => {
+  const MyView = imageList?.slice(0, 5)?.map((item, key) => {
     return (
       <div className="carousel-content" key={item?.id || key}>
         <div
-          className=" rounded-sm"
+          className="h-44 w-64 rounded-sm sm:w-48"
           style={{
             backgroundImage: `url(${item.url})`,
             backgroundPosition: `center center`,
-            height: '12em',
-            width: '14em',
           }}
         ></div>
       </div>
@@ -48,7 +46,7 @@ export const ImageCarousel = ({ imageList }) => {
     },
     mobile2: {
       breakpoint: { max: 549, min: 0 },
-      items: 1,
+      items: 2,
       partialVisibilityGutter: 80,
     },
   };

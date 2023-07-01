@@ -1,10 +1,9 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Search from './Search';
 import { useEffect, useState } from 'react';
-import AccordionItem from './AccordionItem';
+import { AccordionItem, Search } from '.';
 import CatServices from '../services/cats';
 
-function TableLog({ isLoading, limit, data }) {
+function TableList({ isLoading, limit, data }) {
   const { getCatById } = CatServices();
   const [showList, setShowList] = useState(data.slice(0, limit)); // For showing list as accordions
   const [hasMore, setHasMore] = useState(true); // Check if data still exist on the next load of  infinite scroll
@@ -55,7 +54,6 @@ function TableLog({ isLoading, limit, data }) {
     try {
       const res = await getCatById(params);
       setImages(res.data);
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
@@ -125,4 +123,4 @@ function TableLog({ isLoading, limit, data }) {
   );
 }
 
-export default TableLog;
+export default TableList;

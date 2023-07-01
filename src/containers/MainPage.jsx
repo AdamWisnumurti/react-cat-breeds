@@ -1,8 +1,6 @@
-import React, { useEffect, useState, useCallback } from 'react';
-// import { ActivityServices } from '../services';
-import { Alert } from '../components';
+import React, { useEffect, useState } from 'react';
+import { Alert, TableList } from '../components';
 import useBoolean from '../hooks/useBoolean';
-import TableList from '../components/TableList';
 import CatServices from '../services/cats';
 
 export default function MainPage() {
@@ -15,26 +13,23 @@ export default function MainPage() {
     message: '',
   });
 
-  const fethcList = useCallback(
-    async (params) => {
-      loadTrue();
-      try {
-        const res = await getAllCats();
-        // setCatList(res.data.data);
-        setCatList(res.data);
-      } catch (err) {
-        setModalResponse({
-          ...modalResponse,
-          isOpen: true,
-          isError: true,
-          message: err?.response?.data?.message || 'Service error',
-        });
-      } finally {
-        loadFalse();
-      }
-    },
-    [getAllCats, modalResponse, loadFalse, loadTrue]
-  );
+  const fethcList = async () => {
+    loadTrue();
+    try {
+      const res = await getAllCats();
+      // setCatList(res.data.data);
+      setCatList(res.data);
+    } catch (err) {
+      setModalResponse({
+        ...modalResponse,
+        isOpen: true,
+        isError: true,
+        message: err?.response?.data?.message || 'Service error',
+      });
+    } finally {
+      loadFalse();
+    }
+  };
 
   useEffect(
     () => {

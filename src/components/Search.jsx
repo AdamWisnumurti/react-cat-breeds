@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BsSearch, BsX } from 'react-icons/bs';
 
 const Search = ({
@@ -34,15 +34,15 @@ const Search = ({
   };
 
   return (
-    <div className=" flex items-center border focus:ring-indigo-500 focus:border-indigo-500 rounded-xl bg-white">
+    <div className=" flex items-center rounded-xl border bg-white focus:border-indigo-500 focus:ring-indigo-500">
       <input
         value={searchTerm}
         onChange={handleInputChange}
-        className="block w-full p-4 rounded-xl"
+        className="block w-full rounded-xl p-4"
         placeholder="Search..."
       />
 
-      <div className="flex pl-2 pr-4 bg-primary text-gray-400 rounded-md text-md">
+      <div className="bg-primary text-md flex rounded-md pl-2 pr-4 text-gray-400">
         {searchTerm ? (
           <BsX
             onClick={handleDeleteSuggest}
