@@ -1,7 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import Button from './Button';
-import CategoryRating from './CategoryRating';
-import ImageCarousel from './ImageCarousel';
+import { Button, CategoryRating, ImageCarousel } from '.';
 import { Dialog, Transition } from '@headlessui/react';
 import { RxCross2 } from 'react-icons/rx';
 import ReactCountryFlag from 'react-country-flag';

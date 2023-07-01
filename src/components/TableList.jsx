@@ -1,7 +1,6 @@
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useEffect, useState } from 'react';
-import AccordionItem from './AccordionItem';
-import Search from './Search';
+import { AccordionItem, Search } from '.';
 import CatServices from '../services/cats';
 
 function TableList({ isLoading, limit, data }) {
