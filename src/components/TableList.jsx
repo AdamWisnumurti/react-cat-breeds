@@ -83,7 +83,6 @@ function TableList({ isLoading, limit, data }) {
               <div className="w-2/3 md:w-2/5">
                 <Search
                   data={data}
-                  listSuggest={listSuggest}
                   setListSuggest={setListSuggest}
                   searchTerm={searchTerm}
                   setSearchTerm={setSearchTerm}

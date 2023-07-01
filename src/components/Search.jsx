@@ -3,7 +3,6 @@ import { BsSearch, BsX } from 'react-icons/bs';
 
 const Search = ({
   data,
-  listSuggest,
   setListSuggest,
   searchTerm,
   setSearchTerm,

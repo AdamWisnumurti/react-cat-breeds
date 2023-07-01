@@ -43,7 +43,6 @@ export default function Header() {
         data: selectedData,
         images: res.data,
       });
-      console.log(res);
     } catch (err) {
       console.log(err);
     }
