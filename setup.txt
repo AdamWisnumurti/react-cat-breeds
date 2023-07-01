@@ -1,0 +1,18 @@
+npx create-react-app init-react
+
+npm install tailwindcss postcss autoprefixer
+
+npx tailwindcss init
+
+Create a postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+
+Modify the src/index.css
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
