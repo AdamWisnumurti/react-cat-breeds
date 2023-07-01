@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactCountryFlag from 'react-country-flag';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
-import { ImageCarousel, CategoryRating } from '.';
+import ImageCarousel from './ImageCarousel';
+import CategoryRating from './CategoryRating';
 
 export default function AccordionItem({
   item,

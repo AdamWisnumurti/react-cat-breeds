@@ -4,7 +4,8 @@ import {
   Routes,
   Route,
 } from 'react-router-dom';
-import { Layout, PageNotFound } from './components';
+import Layout from './components/Layout';
+import PageNotFound from './components/NotFoundDialog';
 import MainPage from './containers/MainPage';
 
 function App() {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { AutoComplete, DetailModal } from '.';
+import AutoComplete from './AutoComplete';
+import DetailModal from './DetailModal';
 import CatServices from '../services/cats';
 import { BsCaretDownFill } from 'react-icons/bs';
 import { FaCat } from 'react-icons/fa';
