@@ -1,7 +1,7 @@
-import { AccordionItem } from './accordionItem';
+import AccordionItem from './accordion-item';
 // import Alert from './Alert';
-import { AutoComplete } from './autoComplete';
-import { Button } from './button';
+import AutoComplete from './autoComplete';
+import Button from './button';
 import CategoryRating from './categoryRating';
 import DetailModal from './detailModal';
 import Header from './header';
