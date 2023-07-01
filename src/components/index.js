@@ -6,7 +6,7 @@ import CategoryRating from './category-rating';
 import DetailModal from './detail-modal';
 import Header from './header';
 import ImageCarousel from './image-carousel';
-import Layout from './Layout';
+import Layout from './layout';
 import PageNotFound from './not-found-dialog';
 import Search from './search';
 import TableList from './table-list';
