@@ -12,14 +12,14 @@ export default function AccordionItem({
 }) {
   return (
     <div
-      className=" mb-4 flex flex-col rounded-xl bg-white shadow-sm"
+      className=" mb-4 flex w-full flex-col rounded-xl bg-white shadow-sm"
       key={item?.id || idx}
     >
       <div
-        className="flex cursor-pointer px-8 py-2"
+        className="flex cursor-pointer justify-between px-8  py-2"
         onClick={() => toggleAccordion(idx, item?.id)}
       >
-        <div className="flex w-4/5 items-center space-x-8 py-4">
+        <div className="flex items-center space-x-8 py-4">
           <div className="flex items-center">
             <div className="text-neutral-20 text-lg">
               {item?.name || ''}
@@ -27,7 +27,7 @@ export default function AccordionItem({
           </div>
         </div>
 
-        <div className="flex w-1/5 items-center justify-end">
+        <div className="flex items-center justify-end">
           <div className="text-xxs text-neutral-20 ">
             {idxOpen === idx + 1 ? (
               <BsChevronUp />
@@ -40,36 +40,34 @@ export default function AccordionItem({
       {/* Only open if index + 1 is equal idxOpen */}
       {idxOpen === idx + 1 && (
         <>
-          <div className=" border border-t-gray-300 py-0">
-            <div className="text-neutral-20 flex w-full justify-start space-x-2 px-8 py-4 text-sm">
-              <div className="flex w-full flex-col space-y-4 md:w-2/5">
-                <span className=" font-semibold">
-                  <span className="mr-4">
-                    <ReactCountryFlag
-                      countryCode={item?.country_code || ''}
-                      svg
-                      style={{
-                        width: '2em',
-                        height: '2em',
-                      }}
-                      className=" rounded-xl"
-                      title={item?.country_code || ''}
-                    />
-                  </span>{' '}
-                  {item?.origin || ''}
-                </span>
-                <span>{item?.description || ''}</span>
-                <span className="text-xs font-semibold">
-                  <span>{item?.temperament || ''}</span>
-                </span>
-              </div>
-              <div className="flex w-full flex-col space-y-4 md:w-3/5">
-                {images?.length > 0 && (
-                  <ImageCarousel imageList={images} />
-                )}
+          <div className="text-neutral-20 grid grid-cols-6 justify-start border border-t-gray-300 px-8 py-4 text-sm">
+            <div className="col-span-6 grid w-full flex-col content-start space-y-4 md:col-span-2">
+              <span className=" font-semibold">
+                <span className="mr-4">
+                  <ReactCountryFlag
+                    countryCode={item?.country_code || ''}
+                    svg
+                    style={{
+                      width: '2em',
+                      height: '2em',
+                    }}
+                    className=" rounded-xl"
+                    title={item?.country_code || ''}
+                  />
+                </span>{' '}
+                {item?.origin || ''}
+              </span>
+              <span>{item?.description || ''}</span>
+              <span className="text-xs font-semibold">
+                <span>{item?.temperament || ''}</span>
+              </span>
+            </div>
+            <div className="col-span-6 mt-4 grid flex-col space-y-4 pl-0 md:col-span-4 md:pl-4">
+              {images?.length > 0 && (
+                <ImageCarousel imageList={images} />
+              )}
 
-                <CategoryRating data={item} />
-              </div>
+              <CategoryRating data={item} />
             </div>
           </div>
         </>

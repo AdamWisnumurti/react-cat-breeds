@@ -48,7 +48,7 @@ export default function DetailModal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-sm rounded-[12px] bg-white text-center md:max-w-lg">
+              <Dialog.Panel className="w-full max-w-sm rounded-[12px] bg-white text-start md:max-w-lg">
                 <Dialog.Title className="border-gray-90 flex items-center justify-between border-b px-8 py-6 font-semibold">
                   <span>
                     <span>{data?.name || ''}</span>

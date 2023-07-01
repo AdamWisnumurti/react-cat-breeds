@@ -31,8 +31,8 @@ export const ImageCarousel = ({ imageList }) => {
     },
     desktop: {
       breakpoint: { max: 1600, min: 992 },
-      items: 2,
-      partialVisibilityGutter: 30,
+      items: 3,
+      partialVisibilityGutter: 0,
     },
     tablet: {
       breakpoint: { max: 992, min: 669 },
@@ -46,16 +46,17 @@ export const ImageCarousel = ({ imageList }) => {
     },
     mobile2: {
       breakpoint: { max: 549, min: 0 },
-      items: 2,
-      partialVisibilityGutter: 80,
+      items: 1,
+      partialVisibilityGutter: 90,
     },
   };
 
   return (
     <Carousel
-      className="marginside-content ar-testi"
       responsive={responsive}
       arrows={false}
+      autoPlay={true}
+      infinite={true}
       //   renderButtonGroupOutside={true}
       additionalTransfrom={0}
       minimumTouchDrag={80}
