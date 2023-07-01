@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Alert, TableList } from '../components';
 import useBoolean from '../hooks/useBoolean';
 import CatServices from '../services/cats';
+import { Alert, TableList } from '../components';
 
 export default function MainPage() {
   const { getAllCats } = CatServices();
