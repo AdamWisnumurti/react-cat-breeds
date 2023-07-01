@@ -77,7 +77,7 @@ function TableList({ isLoading, limit, data }) {
         <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
           <div className="relative border-b border-gray-200 sm:rounded-lg ">
             <div className="my-4 flex justify-between ">
-              <div className="flex items-center">
+              <div className="flex items-center text-xs sm:text-sm">
                 {showList.length} / {data.length} Items
               </div>
               <div className="w-2/3 md:w-2/5">
