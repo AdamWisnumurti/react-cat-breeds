@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useBoolean from '../hooks/useBoolean';
 import CatServices from '../services/cats';
-import { Alert, TableList } from '../components';
+import { TableList } from '../components';
 
 export default function MainPage() {
   const { getAllCats } = CatServices();
@@ -17,7 +17,6 @@ export default function MainPage() {
     loadTrue();
     try {
       const res = await getAllCats();
-      // setCatList(res.data.data);
       setCatList(res.data);
     } catch (err) {
       setModalResponse({
@@ -48,7 +47,7 @@ export default function MainPage() {
         <p className="text-base font-bold md:text-4xl">Cat List</p>
       </div>
       <TableList isLoading={isLoad} data={catList} limit={10} />
-      <Alert modal={modalResponse} setModal={setModalResponse} />
+      {/* <Alert modal={modalResponse} setModal={setModalResponse} /> */}
     </>
   );
 }
