@@ -1,5 +1,5 @@
 {
   "extends": "./jsconfig.base.json",
-  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx", "src/components/Layout.jsx"],
+  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx"],
   "exclude": ["node_modules"]
 }
