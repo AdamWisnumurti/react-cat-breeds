@@ -1,5 +1,5 @@
 import AccordionItem from './AccordionItem';
-import Alert from './Alert';
+// import Alert from './Alert';
 import AutoComplete from './AutoComplete';
 import Button from './Button';
 import CategoryRating from './CategoryRating';
@@ -13,7 +13,7 @@ import TableList from './TableList';
 
 export {
   AccordionItem,
-  Alert,
+  // Alert,
   AutoComplete,
   Button,
   CategoryRating,
