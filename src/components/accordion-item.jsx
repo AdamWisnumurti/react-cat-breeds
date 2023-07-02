@@ -21,7 +21,7 @@ export default function AccordionItem({
       >
         <div className="flex items-center space-x-8 py-4">
           <div className="flex items-center">
-            <div className="text-neutral-20 text-lg">
+            <div className="text-neutral-20 text-sm md:text-lg">
               {item?.name || ''}
             </div>
           </div>
