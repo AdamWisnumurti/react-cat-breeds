@@ -8,7 +8,7 @@ const Button = ({
   isLoading = false,
   ...props
 }) => {
-  const variantButton = (variant) => {
+  const variantButton = useMemo(() => {
     switch (variant) {
       case 'primary':
         return 'text-white bg-blue-900 dark:bg-blue-900 enabled:hover:opacity-90 enabled:dark:hover:opacity-90 dark:focus:ring-blue-800 focus:outline-blue-800 disabled:opacity-60';
@@ -19,7 +19,8 @@ const Button = ({
       default:
         return 'text-white bg-primary hover:bg-secondary dark:bg-primary dark:hover:bg-secondary dark:focus:ring-primary focus:outline-none focus:ring-primary ';
     }
-  };
+  }, [variant]);
+
   const baseClass =
     'font-semibold rounded-[45px] py-3 text-center align-center items-center flex justify-center outline-none disabled:cursor-not-allowed disabled:bg-grey dark:disabled:bg-grey';
 

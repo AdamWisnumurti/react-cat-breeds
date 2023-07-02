@@ -1,15 +1,30 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect, useCallback } from 'react';
 import { Transition, Dialog } from '@headlessui/react';
 import { CgDanger } from 'react-icons/cg';
+import { Button } from '.';
 
 export default function Alert({ modal, setModal }) {
+  const { isOpen, message } = modal;
+  const toggleClose = useCallback(() => {
+    setModal({ ...modal, isOpen: false });
+  }, [modal, setModal]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setTimeout(() => {
+        setModal({ ...modal, isOpen: false });
+      }, 3000);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   return (
     <>
-      <Transition appear show={modal.isOpen} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="relative z-10"
-          onClose={() => setModal({ ...modal, isOpen: false })}
+          className="relative z-50"
+          onClose={toggleClose}
         >
           <Transition.Child
             as={Fragment}
@@ -34,18 +49,15 @@ export default function Alert({ modal, setModal }) {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="rounded-[12px] bg-white py-5 pl-8 pr-16 text-center">
-                  <Dialog.Title className="flex items-center space-x-3 font-medium">
-                    <CgDanger
-                      className={
-                        modal.isError
-                          ? 'text-danger '
-                          : 'text-[#00A790] '
-                      }
+                <Dialog.Panel className="min-w-[25%] max-w-sm rounded-[12px] bg-white px-8 py-5 text-center">
+                  <Dialog.Title className="flex flex-col items-center justify-center space-y-4 font-medium">
+                    <CgDanger className="text-6xl text-red-500" />
+                    <span className="pb-4 text-sm">{message}</span>
+                    <Button
+                      variant="primary"
+                      label="Close"
+                      onClick={toggleClose}
                     />
-                    <span className="text-sm">
-                      {modal?.responseMassage}
-                    </span>
                   </Dialog.Title>
                 </Dialog.Panel>
               </Transition.Child>

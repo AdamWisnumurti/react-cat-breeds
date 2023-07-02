@@ -19,14 +19,7 @@ function App() {
             </Layout>
           }
         />
-        <Route
-          path={`*`}
-          element={
-            <Layout>
-              <PageNotFound />
-            </Layout>
-          }
-        />
+        <Route path={`*`} element={<PageNotFound />} />
       </Routes>
     </Router>
   );

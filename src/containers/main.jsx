@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useBoolean from '../hooks/useBoolean';
 import CatServices from '../services/cats';
-import { TableList } from '../components';
+import { TableList, Alert, Loading } from '../components';
 
 export default function MainPage() {
   const { getAllCats } = CatServices();
@@ -39,15 +39,17 @@ export default function MainPage() {
   );
 
   if (isLoad) {
-    return <div className="animate-bounce">Loading...</div>;
+    // return <div className="animate-bounce">Loading...</div>;
+    return <Loading />;
+  } else {
+    return (
+      <>
+        <div className="mb-4 flex justify-start md:mb-8">
+          <p className="text-base font-bold md:text-4xl">Cat List</p>
+        </div>
+        <TableList isLoading={isLoad} data={catList} limit={10} />
+        <Alert modal={modalResponse} setModal={setModalResponse} />
+      </>
+    );
   }
-  return (
-    <>
-      <div className="mb-4 flex justify-start md:mb-8">
-        <p className="text-base font-bold md:text-4xl">Cat List</p>
-      </div>
-      <TableList isLoading={isLoad} data={catList} limit={10} />
-      {/* <Alert modal={modalResponse} setModal={setModalResponse} /> */}
-    </>
-  );
 }

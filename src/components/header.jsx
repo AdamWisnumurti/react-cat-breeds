@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AutoComplete, DetailModal } from '.';
+import { AutoComplete, DetailModal, Alert } from '.';
 import CatServices from '../services/cats';
 import { BsCaretDownFill } from 'react-icons/bs';
 import { FaCat } from 'react-icons/fa';
@@ -14,6 +14,11 @@ export default function Header() {
     isOpen: false,
     data: {},
     images: [],
+  });
+  const [modalResponse, setModalResponse] = useState({
+    isOpen: false,
+    isError: false,
+    message: '',
   });
 
   const fethcList = async () => {
@@ -45,6 +50,12 @@ export default function Header() {
       });
     } catch (err) {
       console.log(err);
+      setModalResponse({
+        ...modalResponse,
+        isOpen: true,
+        isError: true,
+        message: err?.response?.data?.message || 'Service error',
+      });
     }
   };
 
@@ -90,13 +101,12 @@ export default function Header() {
             </div>
           </div>
         </div>
-        {modal.isOpen && (
-          <DetailModal
-            modal={modal}
-            setModal={setModal}
-            setSelectedOptions={setSelectedOptions}
-          />
-        )}
+        <DetailModal
+          modal={modal}
+          setModal={setModal}
+          setSelectedOptions={setSelectedOptions}
+        />
+        <Alert modal={modalResponse} setModal={setModalResponse} />
       </section>
     </>
   );
