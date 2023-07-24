@@ -26,7 +26,8 @@ const Search = ({
       }, 1000);
     }
   };
-
+  
+//Tes
   const handleDeleteSuggest = () => {
     setSearchTerm('');
     setListSuggest([]);
